@@ -83,6 +83,7 @@ pipeline {
             }
         
         steps {
+           sh 'terraform providers lock'
            sh "terraform destroy --auto-approve"
         }
     }
