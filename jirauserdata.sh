@@ -18,6 +18,8 @@ executeLauncherAction\$Boolean=false
 EOT
 sudo ./atlassian-jira-software-8.20.10-x64.bin -q -varfile response.varfile
 sudo mkdir -p /media/atl/jira/shared
+sudo chown -R jira:jira /media/atl/jira/shared
+sudo chmod -R 755 /media/atl/jira/shared
 sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0e02c460cd3d2ede8.efs.us-west-2.amazonaws.com:/ /media/atl/jira/shared
 cat <<EOT >> /var/atlassian/application-data/jira/dbconfig.xml
 <?xml version="1.0" encoding="UTF-8"?>
