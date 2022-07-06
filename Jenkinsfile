@@ -35,6 +35,7 @@ pipeline {
             }
             
             steps {
+                sh 'terraform providers lock'
                 sh 'terraform init -input=false'
                 sh 'terraform workspace new ${environment}'
 
